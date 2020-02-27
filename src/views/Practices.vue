@@ -4,8 +4,8 @@
             <h1>Les bonnes pratiques</h1>
             <p>Nous ne sommes qu’au début du phénomène de la pollution numérique. Elle va s’accroître exponentiellement
                 dans les prochaines années si nous ne faisons rien. Nous avons déjà des solutions pour lutter contre
-                elle et nous n’avons aucune excuse valable pour ne pas agir dès maintenant. Afin de devenir un
-                internaute plus écolo et diminuer sa pollution numérique, plusieurs éco-gestes sont préconisés :</p>
+                elle et nous n’avons aucune excuse valable pour ne pas agir dès maintenant.</p>
+            <h2>Comment devenir un internaute plus écolo et diminuer sa pollution numérique ?</h2>
         </section>
         <section class="practices-list">
             <div class="filters">
@@ -22,10 +22,13 @@
             <div class="content">
                 <div class="block" v-for="(data, index) in filteredData">
                     <p class="fact">{{ data.fact }}</p>
-                    <p class="tip">{{ data.tip }}</p>
-                    <button @click="more(index, data)" class="more">
+                    <p :class="`tip ` + classExtended(data.extended)">{{ data.tip }}</p>
+                    <button @click="more(index, data)" :class="`more ` + classExtended(data.extended)">
                         <span class="text">Voir la solution</span>
-                        <span class="chevron">›</span>
+                        <span class="chevron">
+                            <img src="./../assets/img/icon-angle-btn-solution.svg"
+                                 alt="" aria-haspopup="false">
+                        </span>
                     </button>
                 </div>
             </div>
@@ -95,6 +98,11 @@
                     this.data[index],
                     newData
                 ));
+            },
+            classExtended(extended){
+                return extended
+                    ? 'extended'
+                    : '';
             }
         }
     }
@@ -113,7 +121,7 @@
         display: block;
         max-width: 960px;
         width: 80%;
-        font-size: 4.375rem;
+        font-size: 4rem;
         color: #55B55B;
         text-transform: uppercase;
         margin: 0 auto 3rem auto;
@@ -124,12 +132,24 @@
         display: block;
         max-width: 960px;
         width: 80%;
-        font-size: 1.625rem;
+        font-size: 1rem;
         line-height: 1.3;
         color: #707070;
         text-align: justify;
         margin: 0 auto;
         font-family: "OpenSans";
+    }
+
+    .good-practices h2 {
+        display: block;
+        max-width: 960px;
+        width: 80%;
+        font-size: 1rem;
+        line-height: 1.3;
+        color: #707070;
+        margin: 0 auto;
+        font-family: "OpenSans";
+        font-weight: bold;
     }
 
     .practices-list {
@@ -235,17 +255,28 @@
     .content .block .fact{
         font-family: "BreeSerif";
         color: #707070;
-        font-size: 1.25rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
     }
 
     .content .block .tip{
         font-family: "OpenSans";
         color: #55B55B;
-        font-size: 1.25rem;
-        margin-bottom: 2rem;
+        font-size: 1rem;
         border-top: 2px solid #F1F1F1;
         padding-top: 1rem;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+    }
+
+    .content .block .tip.extended{
+        max-height: 20rem;
+        opacity: 1;
+        visibility: visible;
+        margin-bottom: 2rem;
+        transition: all 0.5s ease;
     }
 
     .content .block button{
@@ -259,12 +290,24 @@
         background-color: #EEEEEECC;
     }
 
+    .content .block .more .text{
+        margin-right: 1rem;
+    }
+
+    .content .block .more.extended .text{
+        display: none;
+    }
+
     .content .block .more .chevron{
         display: inline-block;
         vertical-align: middle;
-        transform: rotate(90deg);
         font-size: 2rem;
-        margin-left: 1rem;
         line-height: 0;
+        transition: all 0.250s ease;
+    }
+
+    .content .block .more.extended .chevron{
+        transform: rotate(180deg);
+        transition: all 0.250s ease;
     }
 </style>
