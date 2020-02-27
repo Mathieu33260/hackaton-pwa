@@ -11,14 +11,13 @@
             <div class="filters">
                 <ul>
                     <li>
-                        <button @click="filterCategory(null)">Tout</button>
+                        <button @click="filterCategory(null)" :class="selectedCategories.length === 0 ? 'active' : ''">Tout</button>
                     </li>
                     <li v-for="category in categories" v-if="category !== ''">
-                        <button @click="filterCategory(category)" :class="slugify(category)">{{ category }}</button>
+                        <button @click="filterCategory(category)" :class="classCategory(category)">{{ category }}</button>
                     </li>
                 </ul>
             </div>
-
 
             <div v-for="data in filteredData">
                 {{ data.fact }}
@@ -42,14 +41,14 @@
         },
         data() {
             return {
-                category: null,
+                selectedCategories: [],
                 data: data
             }
         },
         computed: {
             filteredData() {
-                return this.category
-                    ? data.filter(dat => dat.category === this.category)
+                return this.selectedCategories.length !== 0
+                    ? data.filter(dat => this.selectedCategories.includes(dat.category))
                     : data;
             },
             categories() {
@@ -58,16 +57,27 @@
         },
         methods: {
             filterCategory(cat) {
-                this.category = cat;
+                if (cat === null) {
+                    this.selectedCategories = [];
+                } else {
+                    if (this.selectedCategories.includes(cat)) {
+                        this.selectedCategories.splice(this.selectedCategories.indexOf(cat), 1);
+                    } else {
+                        this.selectedCategories.push(cat);
+                    }
+                }
             },
-            slugify(text) {
-                return text.toString().toLowerCase()
+            classCategory(cat) {
+                let slug = cat.toString().toLowerCase()
                     .replace(/\s+/g, '-')
                     .replace(/[^\w\-]+/g, '')
                     .replace(/\-\-+/g, '-')
                     .replace(/^-+/, '')
                     .replace(/-+$/, '');
-            }
+                return this.selectedCategories.includes(cat)
+                    ? 'active ' + slug
+                    : slug;
+            },
         }
     }
 </script>
