@@ -9,6 +9,7 @@
         </section>
         <section class="practices-list">
             <div class="filters">
+                <span class="title">Filtres de recherche</span>
                 <ul>
                     <li>
                         <button @click="filterCategory(null)" :class="selectedCategories.length === 0 ? 'active' : ''">Tout</button>
@@ -18,14 +19,12 @@
                     </li>
                 </ul>
             </div>
-
-            <div v-for="data in filteredData">
-                {{ data.fact }}
-                {{ data.tip }}
-                {{ data.category }}
-                <button @click="more(data)">
-                    Voir plus
-                </button>
+            <div class="content">
+                <div class="block" v-for="data in filteredData">
+                    <p>{{ data.fact }}</p>
+                    <button @click="more(data)">Voir la solution <span class="chevron">›</span></button>
+                    <p v-if="data.extended">{{ data.tip }}</p>
+                </div>
             </div>
         </section>
     </div>
@@ -113,11 +112,10 @@
     .good-practices h1 {
         display: block;
         max-width: 960px;
-        width: 100%;
-        font-size: 5.5rem;
+        width: 80%;
+        font-size: 4.375rem;
         color: #55B55B;
         text-transform: uppercase;
-        text-align: center;
         margin: 0 auto 3rem auto;
         font-family: "BreeSerif";
     }
@@ -125,6 +123,7 @@
     .good-practices p {
         display: block;
         max-width: 960px;
+        width: 80%;
         font-size: 1.625rem;
         line-height: 1.3;
         color: #707070;
@@ -149,6 +148,13 @@
         background-color: #ffffff;
     }
 
+    .filters .title{
+        font-family: "BreeSerif";
+        font-size: 1.5rem;
+        margin: 0.5rem 1rem;
+        display: block;
+    }
+
     .filters ul {
         display: flex;
         flex-wrap: wrap;
@@ -162,11 +168,12 @@
     }
 
     .filters ul li button {
+        font-size: 1rem;
         appearance: none;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
-        border: 2px solid #707070;
-        background-color: transparent;
+        border: none;
+        background-color: #F1F1F1;
         cursor: pointer;
         margin: 0.5rem 1rem;
         color: #707070;
@@ -175,60 +182,79 @@
     }
 
     .filters ul li button.active {
-        background-color: #707070;
+        background-color: #55B55B;
+        color: #ffffff;
     }
 
-    .filters ul li button.services-mail {
-        color: #FFAAC7;
-        border-color: #FFAAC7;
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 80%;
+        margin: 4rem auto;
     }
 
-    .filters ul li button.services-mail.active {
-        background-color: #FFAAC7;
+    .content .block{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(25% - 0.5rem);
+        background-color: #ffffff;
+        box-shadow: 0 0 3px #33333329;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        border-left: 5px solid #999999;
     }
 
-    .filters ul li button.economie {
-        color: #D698F2;
-        border-color: #D698F2;
+    @media (max-width: 1366px) {
+        .content .block{
+            width: calc(33.33% - 0.66rem);
+        }
     }
 
-    .filters ul li button.economie.active {
-        background-color: #D698F2;
+    @media (max-width: 1280px) {
+        .content .block{
+            width: calc(50% - 1rem);
+        }
     }
 
-    .filters ul li button.moteur-de-recherche {
-        color: #83C5F1;
-        border-color: #83C5F1;
+    @media (max-width: 640px) {
+        .content .block{
+            width: 100%;
+        }
     }
 
-    .filters ul li button.moteur-de-recherche.active {
-        background-color: #83C5F1;
+    .content .block.highlighted{
+        background-color: #EEEEEE;
+        border-left-color: #333333;
     }
 
-    .filters ul li button.impact-environnement {
-        color: #9ED87A;
-        border-color: #9ED87A;
+    .content .block p{
+        font-family: "BreeSerif";
+        color: #707070;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
     }
 
-    .filters ul li button.impact-environnement.active {
-        background-color: #9ED87A;
+    .content .block button{
+        appearance: none;
+        border: none;
+        border-radius: 2rem;
+        padding: 1rem 1.5rem;
+        margin-top: auto;
+        color: #707070;
+        font-size: 1rem;
+        background-color: #EEEEEECC;
     }
 
-    .filters ul li button.info-insolite {
-        color: #FDB327;
-        border-color: #FDB327;
-    }
-
-    .filters ul li button.info-insolite.active {
-        background-color: #FDB327;
-    }
-
-    .filters ul li button.conso-donnees {
-        color: #FC7676;
-        border-color: #FC7676;
-    }
-
-    .filters ul li button.conso-donnees.active {
-        background-color: #FC7676;
+    .content .block .chevron{
+        display: inline-block;
+        vertical-align: middle;
+        transform: rotate(90deg);
+        font-size: 2rem;
+        margin-left: 0.5rem;
+        line-height: 0;
     }
 </style>
