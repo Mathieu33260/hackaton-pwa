@@ -8,28 +8,30 @@
             <h2>Comment devenir un internaute plus écolo et diminuer sa pollution numérique ?</h2>
         </section>
         <section class="practices-list">
-            <div class="filters">
-                <span class="title">Filtres de recherche</span>
-                <ul>
-                    <li>
-                        <button @click="filterCategory(null)" :class="selectedCategories.length === 0 ? 'active' : ''">Tout</button>
-                    </li>
-                    <li v-for="category in categories" v-if="category !== ''">
-                        <button @click="filterCategory(category)" :class="classCategory(category)">{{ category }}</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="content">
-                <div class="block" v-for="(data, index) in filteredData">
-                    <p class="fact">{{ data.fact }}</p>
-                    <p :class="`tip ` + classExtended(data.extended)">{{ data.tip }}</p>
-                    <button @click="more(index, data)" :class="`more ` + classExtended(data.extended)">
-                        <span class="text">Voir la solution</span>
-                        <span class="chevron">
+            <div class="tips-container">
+                <div class="filters">
+                    <span class="title">Filtres de recherche</span>
+                    <ul>
+                        <li>
+                            <button @click="filterCategory(null)" :class="selectedCategories.length === 0 ? 'active' : ''">Tout</button>
+                        </li>
+                        <li v-for="category in categories" v-if="category !== ''">
+                            <button @click="filterCategory(category)" :class="classCategory(category)">{{ category }}</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-tips">
+                    <div class="block" v-for="(data, index) in filteredData">
+                        <p class="fact">{{ data.fact }}</p>
+                        <p :class="`tip ` + classExtended(data.extended)">{{ data.tip }}</p>
+                        <button @click="more(index, data)" :class="`more ` + classExtended(data.extended)">
+                            <span class="text">Voir la solution</span>
+                            <span class="chevron">
                             <img src="./../assets/img/icon-angle-btn-solution.svg"
                                  alt="" aria-haspopup="false">
                         </span>
-                    </button>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -160,9 +162,13 @@
         background-color: #EEEEEE;
     }
 
+    .tips-container{
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .filters {
         display: block;
-        width: 80%;
         margin: 0 auto;
         padding: 2rem;
         background-color: #ffffff;
@@ -206,16 +212,15 @@
         color: #ffffff;
     }
 
-    .content{
+    .content-tips{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
-        width: 80%;
         margin: 4rem auto;
     }
 
-    .content .block{
+    .content-tips .block{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -230,36 +235,36 @@
     }
 
     @media (max-width: 1366px) {
-        .content .block{
+        .content-tips .block{
             width: calc(33.33% - 0.66rem);
         }
     }
 
     @media (max-width: 1280px) {
-        .content .block{
+        .content-tips .block{
             width: calc(50% - 1rem);
         }
     }
 
     @media (max-width: 640px) {
-        .content .block{
+        .content-tips .block{
             width: 100%;
         }
     }
 
-    .content .block.highlighted{
+    .content-tips .block.highlighted{
         background-color: #EEEEEE;
         border-left-color: #333333;
     }
 
-    .content .block .fact{
+    .content-tips .block .fact{
         font-family: "BreeSerif";
         color: #707070;
         font-size: 1rem;
         margin-bottom: 1rem;
     }
 
-    .content .block .tip{
+    .content-tips .block .tip{
         font-family: "OpenSans";
         color: #55B55B;
         font-size: 1rem;
@@ -271,7 +276,7 @@
         transition: all 0.5s ease;
     }
 
-    .content .block .tip.extended{
+    .content-tips .block .tip.extended{
         max-height: 20rem;
         opacity: 1;
         visibility: visible;
@@ -279,7 +284,7 @@
         transition: all 0.5s ease;
     }
 
-    .content .block button{
+    .content-tips .block button{
         appearance: none;
         border: none;
         border-radius: 2rem;
@@ -290,15 +295,15 @@
         background-color: #EEEEEECC;
     }
 
-    .content .block .more .text{
+    .content-tips .block .more .text{
         margin-right: 1rem;
     }
 
-    .content .block .more.extended .text{
+    .content-tips .block .more.extended .text{
         display: none;
     }
 
-    .content .block .more .chevron{
+    .content-tips .block .more .chevron{
         display: inline-block;
         vertical-align: middle;
         font-size: 2rem;
@@ -306,7 +311,7 @@
         transition: all 0.250s ease;
     }
 
-    .content .block .more.extended .chevron{
+    .content-tips .block .more.extended .chevron{
         transform: rotate(180deg);
         transition: all 0.250s ease;
     }

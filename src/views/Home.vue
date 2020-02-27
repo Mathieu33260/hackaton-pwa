@@ -125,7 +125,18 @@
                     <span>Alors que faire ?</span>
                     <h2>Les bonnes pratiques</h2>
                 </div>
-                <div class="body">
+                <div class="content-tips" v-if="data">
+                    <div class="block" v-for="index in 3">
+                        <p class="fact">{{ data[index].fact }}</p>
+                        <p :class="`tip ` + classExtended(data[index].extended)">{{ data[index].tip }}</p>
+                        <button @click="more(index, data[index])" :class="`more ` + classExtended(data[index].extended)">
+                            <span class="text">Voir la solution</span>
+                            <span class="chevron">
+                            <img src="./../assets/img/icon-angle-btn-solution.svg"
+                                 alt="" aria-haspopup="false">
+                        </span>
+                        </button>
+                    </div>
                 </div>
                 <div class="cta-wrapper">
                     <router-link to="/practices">
@@ -163,6 +174,7 @@
     import Footer from "../components/Footer";
     import Extension from "../components/Extension";
     import Navbar from "../components/Navbar";
+    import data from "../data.json";
 
     export default {
         name: "Home",
@@ -170,6 +182,42 @@
             Navbar,
             Extension,
             Footer
+        },
+        data() {
+            return {
+                data: data
+            }
+        },
+        methods: {
+            classCategory(cat) {
+                let slug = cat.toString().toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .replace(/[^\w\-]+/g, '')
+                    .replace(/\-\-+/g, '-')
+                    .replace(/^-+/, '')
+                    .replace(/-+$/, '');
+                return this.selectedCategories.includes(cat)
+                    ? 'active ' + slug
+                    : slug;
+            },
+            more(index, data) {
+                let newData = {
+                    fact: data.fact,
+                    tip: data.tip,
+                    category: data.category,
+                    extended: !this.data[index].extended,
+                };
+                this.$set(this.data, index, Object.assign(
+                    {},
+                    this.data[index],
+                    newData
+                ));
+            },
+            classExtended(extended){
+                return extended
+                    ? 'extended'
+                    : '';
+            }
         }
     }
 </script>
@@ -258,6 +306,7 @@
     #timeline-hero{
         display: flex;
         min-height: 100vh;
+        padding: 2rem;
     }
 
     #timeline-hero .wrapper{
@@ -320,6 +369,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 2rem;
     }
 
     #consomme-hero .wrapper{
@@ -379,6 +429,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 2rem;
     }
 
     #bonnes-pratiques-hero .wrapper{
