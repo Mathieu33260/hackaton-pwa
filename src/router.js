@@ -6,7 +6,7 @@ import Fabrication from "./views/Fabrication";
 import Utilisation from "./views/Utilisation";
 import Practices from "./views/Practices";
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
     routes: [
