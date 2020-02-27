@@ -1,11 +1,10 @@
 <template>
     <div>
-        <Navbar></Navbar>
 
-        <button @click="filter(null)">
+        <button @click="filterCategory(null)">
             Tout
         </button>
-        <button v-for="categorie in categories" @click="filter(categorie)">
+        <button v-for="categorie in categories" @click="filterCategory(categorie)" v-if="categorie !== ''">
             {{ categorie }}
         </button>
 
@@ -15,7 +14,6 @@
             {{ data.categorie }}
         </div>
 
-        <Footer></Footer>
     </div>
 </template>
 
@@ -40,12 +38,14 @@
             filteredData() {
                 return this.category
                     ? data.filter(dat => dat.categorie === this.category)
-                    : true;
+                    : data;
             },
             categories() {
                 return Array.from(new Set(this.data.map(dat => dat.categorie)));
             },
-            filter(cat) {
+        },
+        methods: {
+            filterCategory(cat) {
                 this.category = cat;
             }
         }

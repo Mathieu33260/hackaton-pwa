@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from "./Home";
+import Home from "./views/Home";
 import Consommation from "./views/Consomme";
 import Fabrication from "./views/Fabrication";
 import Utilisation from "./views/Utilisation";
@@ -8,7 +8,7 @@ import Practices from "./views/Practices";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/',
@@ -37,3 +37,5 @@ export default new Router({
         },
     ]
 })
+
+export default router;

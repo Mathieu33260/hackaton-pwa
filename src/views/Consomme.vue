@@ -1,8 +1,17 @@
 <template>
     <div>
-        <nav>
+        Pourquoi tu consommes ?
+        <router-link to="/consommation/fabrication">
+            <button>
+                FABRICATION
+            </button>
+        </router-link>
 
-        </nav>
+        <router-link to="/consommation/utilisation">
+            <button>
+                UTILISATION
+            </button>
+        </router-link>
     </div>
 </template>
 

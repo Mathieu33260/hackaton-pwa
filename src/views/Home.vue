@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar></Navbar>
 
         <div>
             Gros titre
@@ -31,15 +30,14 @@
             <Extension :text="'Télécharger'"></Extension>
         </div>
 
-        <Footer></Footer>
     </div>
 </template>
 
 <script>
-    import Consomme from "./components/Consomme";
-    import Footer from "./components/Footer";
-    import Extension from "./components/Extension";
-    import Navbar from "./components/Navbar";
+    import Consomme from "../components/Consomme";
+    import Footer from "../components/Footer";
+    import Extension from "../components/Extension";
+    import Navbar from "../components/Navbar";
 
     export default {
         name: "Home",

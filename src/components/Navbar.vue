@@ -1,18 +1,20 @@
 <template>
     <div>
-        <b-navbar toggleable="lg" type="dark" variant="info">
-            <b-navbar-brand href="#">NavBar</b-navbar-brand>
+        <nav>
+            <router-link to="/">
+                <h2>
+                    NEOS
+                </h2>
+            </router-link>
 
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <router-link to="/consommation">
+                <h2>
+                    Pourquoi tu consommes ?
+                </h2>
+            </router-link>
 
-            <b-collapse id="nav-collapse" is-nav>
-
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-                    <extension :text="'Télécharger l\'extension'"></extension>
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
+            <extension :text="'Télécharger l\'extension'"></extension>
+        </nav>
     </div>
 </template>
 

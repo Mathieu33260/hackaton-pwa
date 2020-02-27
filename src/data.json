@@ -22,7 +22,7 @@
   {
     "Faits": "15 000 km\nc'est la distance moyenne\nparcourue par une donnée\nnumérique (mail,\ntéléchargement,\nvidéo, requête web…).",
     "Astuces": "Réduisez au maximum le transfert de données, notamment la vidéo et la photo via WhatsApp, Messenger, etc. lorsque ce n’est pas en local (wifi, ethernet).",
-    "categorie": "Conso données, Info insolite"
+    "categorie": "Conso données"
   },
   {
     "Faits": "177 tonnes de CO2 c'est ce qu'emet un utilisateur de Youtube chaque année en visonnant des vidéos.",
@@ -47,7 +47,7 @@
   {
     "Faits": "Une recherche sur le moteur Google consommerait autant d'électricité que si vous laissiez une ampoule allumée chez vous pendant une heure.",
     "Astuces": "Utiliser un moteur de recherche éthique (ecosia, lilo, ...)",
-    "categorie": "Impact environnement, Moteur de recherche"
+    "categorie": "Moteur de recherche"
   },
   {
     "Faits": "70% des DEEE font l'objet d'un traffic dans le monde et sont exportés illégalement vers l'Afrique, l'Inde, Pakistant et la Thaïlande",
@@ -62,7 +62,7 @@
   {
     "Faits": "Télécharger la version électronique d’un quotidien consomme autant d’électricité que de faire une lessive.",
     "Astuces": "Parfois… imprimez ! Cela semble fou, pourtant l’Ademe indique que pour les documents de plus de quatre pages, qui prendraient plus de 15 minutes à lire, il serait préférable de les imprimer (en noir et blanc, recto verso et deux pages par face) plutôt que de les lire devant son écran.",
-    "categorie": "Impact environnement, Info insolite"
+    "categorie": "Info insolite"
   },
   {
     "Faits": "L'empreinte carbone mondiale annuelle du spam équivaut à 3 millions de voitures sur la route chaque année.",
@@ -72,7 +72,7 @@
   {
     "Faits": "La fabrication de l'électricité consommée par un petit centre informatique (100 serveurs) émet environ 300 tonnes équivalent carbone par an, soit la consommation annuelle de 300 allers-retours Paris-Boston.",
     "Astuces": "Luttez contre l’obsolescence programmée, en privilégiant les équipements les plus durables, qui sont solides, réparables et vous tiendrons longtemps.",
-    "categorie": "Impact environnement, Info insolite"
+    "categorie": "Info insolite"
   },
   {
     "Faits": "Chaque mail envoyé est égal à 4g de CO2",
@@ -122,7 +122,7 @@
   {
     "Faits": "1 heure de vidéo visionnée sur smartphone = la même consommation d’énergie qu’un réfrigérateur allumé pendant un an",
     "Astuces": "Pensez à regardez vos séries en basse définition ! En streaming, le fait de regarder un film en basse définition permet de consommer quatre à dix fois moins d’énergie qu’un visionnage du même fichier en haute définition.",
-    "categorie": "Impact environnement, Info insolite"
+    "categorie": "Info insolite"
   },
   {
     "Faits": "La numérique émet 4 fois plus de CO2 que la France ( 0,9% → 3,8% )",
@@ -132,7 +132,7 @@
   {
     "Faits": "126 813 600 000 : nombre de bouteilles d’un litre de CO2 émises par heure à cause des emails.",
     "Astuces": "Faire le tri, en supprimant certains mails est indispensable",
-    "categorie": "Impact environnement, Services mail"
+    "categorie": "Services mail"
   },
   {
     "Faits": "10 milliards : nombre d’emails envoyés toutes les heures. L’équivalent de 4 000 tonnes de pétrole ou de la production de 15 centrales nucléaires en une heure.",
@@ -167,6 +167,6 @@
   {
     "Faits": "Regarder une vidéo en streaming sur son téléphone en 4G consomme 23 fois plus d’énergie qu’en wi-fi, car le réseau mobile sollicite des antennes relais.",
     "Astuces": "Pensez à regardez vos séries en basse définition ! En streaming, le fait de regarder un film en basse définition permet de consommer quatre à dix fois moins d’énergie qu’un visionnage du même fichier en haute définition.",
-    "categorie": "Conso données, Impact environnement"
+    "categorie": "Conso données"
   }
 ]

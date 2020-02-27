@@ -1,5 +1,7 @@
 <template>
-
+    <div>
+        Fabrication
+    </div>
 </template>
 
 <script>

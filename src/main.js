@@ -1,19 +1,19 @@
 import Vue from 'vue'
-import Home from './Home';
 import router from './router';
-import './registerServiceWorker'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Install BootstrapVue
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+import './registerServiceWorker';
+import App from "./App";
+import firebase from 'firebase';
 
 Vue.config.productionTip = false;
+const config = {
+  apiKey: "AIzaSyBYtFR3c1xl7n5c8nac3HjJiX4ZN4W_Yh0",
+  authDomain: "neos-71307.firebaseapp.com",
+  messagingSenderId: "106265079673",
+};
+firebase.initializeApp(config);
+firebase.messaging().usePublicVapidKey("BLHXJFKF3n77h98iRvRWCacWwQWreTVX92Qh1AHwSreopdqcAh2pW1jBVotOdC3Rf_NIGHj_IUlmbsNzG_L_xk8");
 
 new Vue({
   router,
-  render: h => h(Home),
+  render: h => h(App),
 }).$mount('#app')
