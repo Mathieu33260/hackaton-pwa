@@ -123,7 +123,7 @@
                     <h2>Les bonnes pratiques</h2>
                 </div>
                 <div class="content-tips" v-if="data">
-                    <div class="block" v-for="index in 3">
+                    <div class="block" v-for="index in 4">
                         <p class="fact">{{ data[index].fact }}</p>
                         <p :class="`tip ` + classExtended(data[index].extended)">{{ data[index].tip }}</p>
                         <button @click="more(index, data[index])" :class="`more ` + classExtended(data[index].extended)">
@@ -450,6 +450,10 @@
         color: #999;
         font-size: 2.5rem;
         display: block;
+        text-align: right;
+    }
+
+    #bonnes-pratiques-hero .wrapper .header h2{
         text-align: right;
     }
 
