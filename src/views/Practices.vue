@@ -23,6 +23,9 @@
                 {{ data.fact }}
                 {{ data.tip }}
                 {{ data.category }}
+                <button @click="more(data)">
+                    Voir plus
+                </button>
             </div>
         </section>
     </div>
@@ -42,7 +45,14 @@
         data() {
             return {
                 selectedCategories: [],
-                data: data
+                data: data.map(dat => {
+                    return {
+                        fact: dat.fact,
+                        tips: dat.tips,
+                        category: dat.category,
+                        extended: false,
+                    }
+                })
             }
         },
         computed: {
@@ -78,6 +88,15 @@
                     ? 'active ' + slug
                     : slug;
             },
+            more(data) {
+                let newData = {
+                    fact: data.fact,
+                    tips: data.tips,
+                    category: data.category,
+                    extended: !this.data[this.data.findIndex(dat => dat.tips === data.tips)].extended,
+                };
+                this.$set(this.data, this.data.findIndex(dat => dat.tips === data.tips), newData)
+            }
         }
     }
 </script>
