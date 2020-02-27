@@ -82,6 +82,10 @@
         line-height: 1;
     }
 
+    *{
+        box-sizing: border-box;
+    }
+
     ol, ul {
         list-style: none;
     }
