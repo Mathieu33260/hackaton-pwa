@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 <div class="content-tips">
-                    <div class="block" v-for="(data, index) in filteredData">
+                    <div v-for="(data, index) in filteredData" :class="`block ` + classHighlighted(data.highlight)">
                         <p class="fact">{{ data.fact }}</p>
                         <p :class="`tip ` + classExtended(data.extended)">{{ data.tip }}</p>
                         <button @click="more(index, data)" :class="`more ` + classExtended(data.extended)">
@@ -136,6 +136,11 @@
                 return extended
                     ? 'extended'
                     : '';
+            },
+            classHighlighted(highlight){
+                return highlight
+                    ? 'highlighted'
+                    : '';
             }
         }
     }
@@ -194,15 +199,16 @@
     }
 
     .tips-container{
+        background-color: #FFFFFF;
         width: 80%;
         margin: 0 auto;
+        padding: 2rem;
     }
 
     .filters {
         display: block;
         margin: 0 auto;
         padding: 2rem;
-        background-color: #ffffff;
     }
 
     .filters .title{
@@ -324,6 +330,10 @@
         color: #707070;
         font-size: 1rem;
         background-color: #EEEEEECC;
+    }
+
+    .content-tips .block.highlighted button{
+        background-color: #FFFFFF;
     }
 
     .content-tips .block .more .text{
