@@ -78,6 +78,10 @@
         display: block;
     }
 
+    *{
+        box-sizing: border-box;
+    }
+
     body {
         line-height: 1;
     }
