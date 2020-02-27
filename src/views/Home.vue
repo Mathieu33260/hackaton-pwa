@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <consomme></consomme>
+        <div>Consomme</div>
 
         <div>
             Accès bonnes pratiques
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-    import Consomme from "../components/Consomme";
     import Footer from "../components/Footer";
     import Extension from "../components/Extension";
     import Navbar from "../components/Navbar";
@@ -44,14 +43,13 @@
         components: {
             Navbar,
             Extension,
-            Footer,
-            Consomme
+            Footer
         }
     }
 </script>
 
-<style scoped>
+<style>
     body {
-        min-height: 100vh;
+        background: red;
     }
 </style>
