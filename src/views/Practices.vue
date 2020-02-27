@@ -2,7 +2,10 @@
     <div>
         <section class="good-practices">
             <h1>Les bonnes pratiques</h1>
-            <p>Nous ne sommes qu’au début du phénomène de la pollution numérique. Elle va s’accroître exponentiellement dans les prochaines années si nous ne faisons rien. Nous avons déjà des solutions pour lutter contre elle et nous n’avons aucune excuse valable pour ne pas agir dès maintenant. Afin de devenir un internaute plus écolo et diminuer sa pollution numérique, plusieurs éco-gestes sont préconisés :</p>
+            <p>Nous ne sommes qu’au début du phénomène de la pollution numérique. Elle va s’accroître exponentiellement
+                dans les prochaines années si nous ne faisons rien. Nous avons déjà des solutions pour lutter contre
+                elle et nous n’avons aucune excuse valable pour ne pas agir dès maintenant. Afin de devenir un
+                internaute plus écolo et diminuer sa pollution numérique, plusieurs éco-gestes sont préconisés :</p>
         </section>
         <section class="practices-list">
             <div class="filters">
@@ -11,7 +14,7 @@
                         <button @click="filterCategory(null)">Tout</button>
                     </li>
                     <li v-for="category in categories" v-if="category !== ''">
-                        <button @click="filterCategory(category)">{{ category }}</button>
+                        <button @click="filterCategory(category)" :class="slugify(category)">{{ category }}</button>
                     </li>
                 </ul>
             </div>
@@ -56,13 +59,21 @@
         methods: {
             filterCategory(cat) {
                 this.category = cat;
+            },
+            slugify(text) {
+                return text.toString().toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .replace(/[^\w\-]+/g, '')
+                    .replace(/\-\-+/g, '-')
+                    .replace(/^-+/, '')
+                    .replace(/-+$/, '');
             }
         }
     }
 </script>
 
 <style>
-    .good-practices{
+    .good-practices {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -70,7 +81,7 @@
         background-color: #EEEEEE;
     }
 
-    .good-practices h1{
+    .good-practices h1 {
         display: block;
         max-width: 960px;
         width: 100%;
@@ -79,18 +90,21 @@
         text-transform: uppercase;
         text-align: center;
         margin: 0 auto 3rem auto;
+        font-family: "BreeSerif";
     }
 
-    .good-practices p{
+    .good-practices p {
         display: block;
         max-width: 960px;
         font-size: 1.625rem;
+        line-height: 1.3;
         color: #707070;
         text-align: justify;
         margin: 0 auto;
+        font-family: "OpenSans";
     }
 
-    .practices-list{
+    .practices-list {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -98,7 +112,7 @@
         background-color: #EEEEEE;
     }
 
-    .filters{
+    .filters {
         display: block;
         width: 80%;
         margin: 0 auto;
@@ -106,7 +120,7 @@
         background-color: #ffffff;
     }
 
-    .filters ul{
+    .filters ul {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
@@ -114,17 +128,78 @@
         padding: 0;
     }
 
-    .filters ul li{
+    .filters ul li {
         display: inline-block;
     }
 
-    .filters ul li button{
+    .filters ul li button {
         appearance: none;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         border: 2px solid #707070;
-        background-color: #707070;
+        background-color: transparent;
         cursor: pointer;
         margin: 0.5rem 1rem;
+        color: #707070;
+        font-family: "OpenSans";
+        font-weight: bold;
+    }
+
+    .filters ul li button.active {
+        background-color: #707070;
+    }
+
+    .filters ul li button.services-mail {
+        color: #FFAAC7;
+        border-color: #FFAAC7;
+    }
+
+    .filters ul li button.services-mail.active {
+        background-color: #FFAAC7;
+    }
+
+    .filters ul li button.economie {
+        color: #D698F2;
+        border-color: #D698F2;
+    }
+
+    .filters ul li button.economie.active {
+        background-color: #D698F2;
+    }
+
+    .filters ul li button.moteur-de-recherche {
+        color: #83C5F1;
+        border-color: #83C5F1;
+    }
+
+    .filters ul li button.moteur-de-recherche.active {
+        background-color: #83C5F1;
+    }
+
+    .filters ul li button.impact-environnement {
+        color: #9ED87A;
+        border-color: #9ED87A;
+    }
+
+    .filters ul li button.impact-environnement.active {
+        background-color: #9ED87A;
+    }
+
+    .filters ul li button.info-insolite {
+        color: #FDB327;
+        border-color: #FDB327;
+    }
+
+    .filters ul li button.info-insolite.active {
+        background-color: #FDB327;
+    }
+
+    .filters ul li button.conso-donnees {
+        color: #FC7676;
+        border-color: #FC7676;
+    }
+
+    .filters ul li button.conso-donnees.active {
+        background-color: #FC7676;
     }
 </style>

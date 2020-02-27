@@ -22,7 +22,7 @@
   {
     "fact": "15 000 km\nc'est la distance moyenne\nparcourue par une donnée\nnumérique (mail,\ntéléchargement,\nvidéo, requête web…).",
     "tip": "Réduisez au maximum le transfert de données, notamment la vidéo et la photo via WhatsApp, Messenger, etc. lorsque ce n’est pas en local (wifi, ethernet).",
-    "category": "Conso données"
+    "category": "Conso donnees"
   },
   {
     "fact": "177 tonnes de CO2 c'est ce qu'emet un utilisateur de Youtube chaque année en visonnant des vidéos.",
@@ -167,6 +167,6 @@
   {
     "fact": "Regarder une vidéo en streaming sur son téléphone en 4G consomme 23 fois plus d’énergie qu’en wi-fi, car le réseau mobile sollicite des antennes relais.",
     "tip": "Pensez à regardez vos séries en basse définition ! En streaming, le fait de regarder un film en basse définition permet de consommer quatre à dix fois moins d’énergie qu’un visionnage du même fichier en haute définition.",
-    "category": "Conso données"
+    "category": "Conso donnees"
   }
 ]
