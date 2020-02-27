@@ -266,7 +266,7 @@
         vertical-align: middle;
         transform: rotate(90deg);
         font-size: 2rem;
-        margin-left: 0.5rem;
+        margin-left: 1rem;
         line-height: 0;
     }
 </style>
