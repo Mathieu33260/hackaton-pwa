@@ -9,47 +9,16 @@
 <script>
     import Navbar from "./components/Navbar";
     import Footer from "./components/Footer";
-    import firebase from "../firebase";
+    import firebase from './configFirebase';
+
+    const { messaging } = firebase;
 
     export default {
         name: "App",
         components: {Footer, Navbar},
-        created() {
-            Notification.requestPermission().then(function(result) {
-                if(result === 'granted') {
-                    firebase.messaging().getToken().then((currentToken) => {
-                        if (currentToken) {
-                            sendTokenToServer(currentToken);
-                            updateUIForPushEnabled(currentToken);
-                        } else {
-                            // Show permission request.
-                            console.log('No Instance ID token available. Request permission to generate one.');
-                            // Show permission UI.
-                            updateUIForPushPermissionRequired();
-                            setTokenSentToServer(false);
-                        }
-                    }).catch((err) => {
-                        console.log('An error occurred while retrieving token. ', err);
-                        showToken('Error retrieving Instance ID token. ', err);
-                        setTokenSentToServer(false);
-                    });
-                }
-            });
-
-            firebase.messaging().onTokenRefresh(() => {
-                messaging.getToken().then((refreshedToken) => {
-                    console.log('Token refreshed.');
-                    // Indicate that the new Instance ID token has not yet been sent to the
-                    // app server.
-                    setTokenSentToServer(false);
-                    // Send Instance ID token to app server.
-                    sendTokenToServer(refreshedToken);
-                    // ...
-                }).catch((err) => {
-                    console.log('Unable to retrieve refreshed token ', err);
-                    showToken('Unable to retrieve refreshed token ', err);
-                });
-            });
+        mounted() {
+            this.listenTokenRefresh();
+            this.getMessagingToken();
         },
         methods: {
             getMessagingToken () {
@@ -69,9 +38,13 @@
                 });
             },
             notificationsPermisionRequest () {
-                messaging.requestPermission()
-                    .then(() => {
-                        this.getMessagingToken();
+                Notification.requestPermission()
+                    .then((result) => {
+                        if(result === 'granted') {
+                            this.getMessagingToken();
+                        } else {
+                            console.log('User don\'t want to be notified');
+                        }
                     })
                     .catch((err) => {
                         console.log('Unable to get permission to notify.', err);
@@ -83,22 +56,12 @@
                 if(!!currentMessageToken){
                     messaging.onTokenRefresh(function() {
                         messaging.getToken().then(function(token) {
-                            this.saveToken(token);
+
                         }).catch(function(err) {
                             console.log('Unable to retrieve refreshed token ', err);
                         });
                     });
                 }
-            },
-            saveToken(token) {
-                console.log('tokens', token)
-                axios.post(`https://us-central1-cropchien.cloudfunctions.net/GeneralSubscription`,{ token })
-                    .then(response => {
-                        window.localStorage.setItem('messagingToken',token)
-                        console.log(response)
-                    }).catch((err) => {
-                    console.log(err)
-                })
             },
         }
     }
