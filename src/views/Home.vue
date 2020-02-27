@@ -110,9 +110,6 @@
                     <router-link to="/consommation/fabrication">
                         Examiner la fabrication
                     </router-link>
-                    <router-link to="/consommation/utilisation">
-                        Examiner les usages
-                    </router-link>
                 </div>
             </div>
         </section>

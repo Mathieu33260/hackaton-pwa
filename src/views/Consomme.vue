@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-    <div class="content">
+    <div class="content-fabrication">
       <h1>Les pratiques digitales <br>des utilisateurs</h1>
       <p>
         Le numérique a un impact environnemental conséquent. Si l’on prend l’exemple d’Internet, on a réalisé une analyse de cycle de vie simplifié en 2015, on a regardé son empreinte écologique et c’est à peu près deux fois celle de la France. C’est un sixième continent tant sur les émissions de gaz à effet de serre que sur l’épuisement de ressources naturelles ou encore la consommation d’énergie.
@@ -44,7 +44,7 @@
         </div>
       </div>
     </section>
-    <div class="content fit">
+    <div class="content-fabrication fit">
 
         <h2>Comment gérer les mails ?</h2>
       <p>
@@ -62,11 +62,11 @@
       </p>
     </div>
     
-    <div class="content two-columns">
+    <div class="content-fabrication two-columns">
         <div class="left">
             <img src="./../assets/illu-music.svg" alt="Music">
         </div>
-        <div class="content right">
+        <div class="content-fabrication right">
             <h2>La musique en streaming</h2>
             <p>
                 Les disques ont presque tous disparu au profit des plateformes de streaming. On 
@@ -94,10 +94,18 @@
 </script>
 
 <style>
-    .content.fit{
+    .content-consomme{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 4rem auto;
+        width: 80%;
+    }
+    .content-fabrication.fit{
         max-width: 60%;
     }
-    .content.fit h2{
+    .content-fabrication.fit h2{
         margin-top: 3rem;
         font-family: 'BreeSerif';
         color: #333;
@@ -106,7 +114,7 @@
         margin-bottom: 3rem;
         text-transform: uppercase;
     }
-    .content.two-columns{
+    .content-fabrication.two-columns{
         background-color: #999;
         display: flex;
         flex-wrap: nowrap;
@@ -114,17 +122,17 @@
         padding: 5rem 10% 0;
         margin-bottom: 0;
     }
-    .content.two-columns .left{
+    .content-fabrication.two-columns .left{
         padding-top: 5rem;
     }
-    .content.two-columns .left img{
+    .content-fabrication.two-columns .left img{
         width: 285px;
     }
-    .content.two-columns .right{
+    .content-fabrication.two-columns .right{
         margin-left: 6rem;
     }
 
-    .content.two-columns .right h2{
+    .content-fabrication.two-columns .right h2{
         
         margin-top: 3rem;
         font-family: 'BreeSerif';

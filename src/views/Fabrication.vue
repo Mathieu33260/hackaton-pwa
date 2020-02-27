@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="content">
+    <div class="content-fabrication">
       <h1>La fabrication des <br> équipements numériques</h1>
       <p>
         Internet représente 7% de la consommation électrique mondiale et pollue
@@ -54,7 +54,7 @@
         </div>
       </div>
     </section>
-    <div class="content">
+    <div class="content-fabrication">
       <p>
         <strong>Les ordinateurs recèlent nombre de substances polluantes,</strong> dangereuses
         pour ceux qui les manipulent au moment de leur fabrication et pour toute
@@ -102,7 +102,7 @@
         </div>
       </div>
     </section>
-    <div class="content image-center">
+    <div class="content-fabrication image-center">
         <img src="./../assets/illu-reduction-empreinte.svg" alt="Illustration réduction">
       <p>
         Maintenant que vous avez connaissance de cette pollution numérique, et que vous avez aussi 
@@ -120,33 +120,41 @@ export default {
 </script>
 
 <style>
-    .content{
+  .content-fabrication{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 4rem auto;
+    width: 80%;
+  }
+    .content-fabrication{
         font-family: 'OpenSans';
     }
-    .content h1{
+    .content-fabrication h1{
         font-family: 'BreeSerif';
         text-transform: uppercase;
         font-size: 5rem;
         margin-bottom: 3rem;
     }
-    .content:first-of-type{
+    .content-fabrication:first-of-type{
         padding-top: 15rem;
     }
-    .content p{
+    .content-fabrication p{
         font-size: 1.4rem;
         line-height: 1.3;
         margin: .5rem 0 1rem;
     }
-    .content p strong{
+    .content-fabrication p strong{
         font-weight: bold;
     }
-    .content ul{
+    .content-fabrication ul{
         font-size: 1.4rem;
         list-style-type: disc;
         padding-left: 1.3rem;
         margin: .5rem 0 1rem;
     }
-    .content.image-center img{
+    .content-fabrication.image-center img{
         margin: 0 auto 2rem;
     }
     #infos-hero.info-start .right {
