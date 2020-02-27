@@ -55,6 +55,37 @@
         },
         computed: {
             filteredData() {
+                if (data) {
+                    let rdm1 = Math.floor(Math.random() * (5 - 1) + 1);
+                    let rdm2 = Math.floor(Math.random() * (9 - 5) + 5);
+                    data.map((dat, index) => {
+                        let highlight;
+                        if (index % 9 === 0) {
+                            rdm1 = Math.floor( Math.random() * ((index + 5) - index) + index);
+                            rdm2 = Math.floor(Math.random() * ((index + 9) - (index + 5)) + (index + 5));
+                        }
+                        if (index === rdm1) {
+                            highlight = true;
+                        } else if (index === rdm2) {
+                            highlight = true;
+                        } else {
+                            highlight = false;
+                        }
+                        let newData = {
+                            fact: dat.fact,
+                            tip: dat.tip,
+                            category: dat.category,
+                            extended: dat.extended,
+                            highlight: highlight,
+                        };
+                        console.log(index, highlight);
+                        this.$set(this.data, index, Object.assign(
+                            {},
+                            this.data[index],
+                            newData
+                        ));
+                    });
+                }
                 return this.selectedCategories.length !== 0
                     ? data.filter(dat => this.selectedCategories.includes(dat.category))
                     : data;
