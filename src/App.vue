@@ -415,4 +415,142 @@
         color: #000;
         padding: 0.2em 0;
     }
+
+    nav {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem 10% 0;
+        transition: all .4s ease-in-out;
+    }
+    nav .logo{
+        display: flex;
+        align-items: center;
+        width: 20vw;
+        margin-right: 2rem;
+    }
+    nav .logo img{
+        max-width: 100%;
+        height: auto;
+    }
+    nav .links {
+        display: flex;
+        align-items: center;
+    }
+    nav .links a {
+        font-family: "BreeSerif";
+        color: #999;
+        text-decoration: none;
+        margin-right: 2rem;
+        transition: all 0.4s ease-in-out;
+    }
+    nav .links a:hover {
+        font-family: "BreeSerif";
+        color: #55b55b;
+        text-decoration: none;
+        margin-right: 2rem;
+    }
+    nav .links a:last-of-type {
+        display: inline-block;
+        font-size: 1rem;
+        font-family: "BreeSerif";
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+        background-color: #55b55b;
+        color: #fff;
+        text-decoration: none;
+        padding: 1.1rem 1.7rem;
+        transition: all 0.4s ease-in-out;
+    }
+    nav .links a:last-of-type:hover {
+        background-color: #333;
+        color: #55b55b;
+        border-top-right-radius: 100px;
+    }
+    nav.scrollable {
+        background-color: #FFF;
+        padding: 0 5% ;
+    }
+    nav.scrollable *{
+        transition: all .4s ease-in-out;
+    }
+    nav.scrollable .links a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition: all 0.4s ease-in-out;
+    }
+    nav.scrollable .logo {
+        display: flex;
+        align-items: center;
+        height: 4rem;
+    }
+    nav.scrollable .logo img {
+        height: 55%;
+    }
+    nav.scrollable .links a:last-of-type {
+        display: inline-block;
+        font-size: 1rem;
+        font-family: "BreeSerif";
+        border-radius: 0px;
+        background-color: #55b55b;
+        color: #fff;
+        text-decoration: none;
+        padding: 1.5rem 1.7rem;
+        transition: all 0.4s ease-in-out;
+    }
+    nav.scrollable .links a:last-of-type:hover {
+        background-color: #333;
+        color: #55b55b;
+    }
+
+    footer{
+        background-color: #333;
+        color: #999;
+        padding: 3rem 10%;
+    }
+
+    footer .agence{
+        max-width: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    footer .agence .image{
+        margin-right: 2.5rem;
+    }
+
+    footer .agence .intro{
+        font-family: 'OpenSans';
+    }
+
+    footer .agence .intro span{
+        display: block;
+        font-family: 'BreeSerif';
+        font-size: 1.4rem;
+        margin-bottom: .5rem;
+    }
+
+    footer hr{
+        margin: 4rem 0 2rem;
+    }
+
+    footer .more-pages{
+        font-family: 'BreeSerif';
+        text-align: center;
+    }
+
+    footer .more-pages a{
+        margin: 4rem 0 2rem;
+        font-family: 'BreeSerif';
+        font-size: 1.2rem;
+        color: #999;
+        margin: 0 .8rem;
+    }
 </style>

@@ -29,49 +29,6 @@
 
 <style>
 
-    footer{
-        background-color: #333;
-        color: #999;
-        padding: 3rem 10%;
-    }
 
-    footer .agence{
-        max-width: 50%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-    }
-
-    footer .agence .image{
-        margin-right: 2.5rem;
-    }
-
-    footer .agence .intro{
-        font-family: 'OpenSans';
-    }
-
-    footer .agence .intro span{
-        display: block;
-        font-family: 'BreeSerif';
-        font-size: 1.4rem;
-        margin-bottom: .5rem;
-    }
-
-    footer hr{
-        margin: 4rem 0 2rem;
-    }
-
-    footer .more-pages{
-        font-family: 'BreeSerif';
-        text-align: center;
-    }
-
-    footer .more-pages a{
-        margin: 4rem 0 2rem;
-        font-family: 'BreeSerif';
-        font-size: 1.2rem;
-        color: #999;
-        margin: 0 .8rem;
-    }
 
 </style>
