@@ -21,9 +21,11 @@
             </div>
             <div class="content">
                 <div class="block" v-for="data in filteredData">
-                    <p>{{ data.fact }}</p>
-                    <button @click="more(data)">Voir la solution <span class="chevron">›</span></button>
-                    <p v-if="data.extended">{{ data.tip }}</p>
+                    <p class="fact">{{ data.fact }}</p>
+                    <p class="tip">{{ data.tip }}</p>
+                    <button @click="more(data)" class="more">
+                        <span class="text">Voir la solution</span>
+                        <span class="chevron">›</span></button>
                 </div>
             </div>
         </section>
@@ -190,6 +192,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: flex-start;
         width: 80%;
         margin: 4rem auto;
     }
@@ -231,11 +234,20 @@
         border-left-color: #333333;
     }
 
-    .content .block p{
+    .content .block .fact{
         font-family: "BreeSerif";
         color: #707070;
         font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .content .block .tip{
+        font-family: "OpenSans";
+        color: #55B55B;
+        font-size: 1.25rem;
         margin-bottom: 2rem;
+        border-top: 2px solid #F1F1F1;
+        padding-top: 1rem;
     }
 
     .content .block button{
@@ -249,7 +261,7 @@
         background-color: #EEEEEECC;
     }
 
-    .content .block .chevron{
+    .content .block .more .chevron{
         display: inline-block;
         vertical-align: middle;
         transform: rotate(90deg);
