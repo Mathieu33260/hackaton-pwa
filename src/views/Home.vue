@@ -39,7 +39,7 @@
                         Une ampoule allumée chez vous pendant une heure
                     </div>
                     <div class="bullet">
-                        
+
                     </div>
                     <div class="right">
                         Une recherche sur le moteur Google
@@ -50,7 +50,7 @@
                         Une lessive
                     </div>
                     <div class="bullet">
-                        
+
                     </div>
                     <div class="right">
                         Télécharger la version électronique d'un quotidien
@@ -61,7 +61,7 @@
                         4g de Co2
                     </div>
                     <div class="bullet">
-                        
+
                     </div>
                     <div class="right">
                         Un mail envoyé
@@ -72,7 +72,7 @@
                         6g de Co2 / an
                     </div>
                     <div class="bullet">
-                        
+
                     </div>
                     <div class="right">
                         Un destinataire en plus dans un mail
@@ -83,7 +83,7 @@
                         La même consommation d'énergie qu'un réfrigérateur allumé pendant un an.
                     </div>
                     <div class="bullet">
-                        
+
                     </div>
                     <div class="right">
                         1 heure de vidéo visionnée sur smartphone
@@ -103,16 +103,16 @@
                 <div class="body">
                     <p>
                         L'expression « pollution numérique » désigne les impacts environnementaux négatifs de ces technologies qui ressortent de leur bilan environnemental.<br>
-                        La consommation d'électricité non négligeable des systèmes, l'usage de matières premières et d'énergie grise pour la fabrication des appareils, leur transformation en déchets après leur remplacement sont généralement évalués. 
+                        La consommation d'électricité non négligeable des systèmes, l'usage de matières premières et d'énergie grise pour la fabrication des appareils, leur transformation en déchets après leur remplacement sont généralement évalués.
                     </p>
                 </div>
                 <div class="cta-wrapper">
-                    <a href="">
+                    <router-link to="/consommation/fabrication">
                         Examiner la fabrication
-                    </a>
-                    <a href="">
+                    </router-link>
+                    <router-link to="/consommation/utilisation">
                         Examiner les usages
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </section>
@@ -224,7 +224,7 @@
 
 <style>
 
-    
+
     #first-hero{
         background-color: #EEE;
         background-image: url('./../assets/motif.svg');
@@ -274,7 +274,7 @@
         line-height: 1.2;
         margin-bottom: 3rem;
         text-transform: uppercase;
-        text-align: left; 
+        text-align: left;
         max-width: 87%;
         margin-left: auto;
         margin-right: auto;
@@ -357,7 +357,7 @@
 
     #timeline-hero .wrapper .row .bullet{
         width: 16px;
-        height: 16px; 
+        height: 16px;
         border-radius: 100px;
         background-color: #333;
     }

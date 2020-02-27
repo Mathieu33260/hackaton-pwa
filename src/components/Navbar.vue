@@ -2,7 +2,9 @@
   <div>
     <nav id="main-nav">
       <div class="logo">
-        <img src="./../assets/logo-bright.svg" alt="Logo Neos" />
+        <router-link to="/">
+          <img src="./../assets/logo-bright.svg" alt="Logo Neos" />
+        </router-link>
       </div>
       <div class="links">
         <router-link to="/">
