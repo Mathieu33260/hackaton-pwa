@@ -215,6 +215,7 @@
     #infos-hero .left .wrapper{
         flex-basis: 40%;
         background-color: #55B55B;
+        text-align: center
     }
 
     #infos-hero .left .wrapper h2{
@@ -225,6 +226,10 @@
         line-height: 1.2;
         margin-bottom: 3rem;
         text-transform: uppercase;
+        text-align: left; 
+        max-width: 87%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #infos-hero .right{
