@@ -20,12 +20,13 @@
                 </ul>
             </div>
             <div class="content">
-                <div class="block" v-for="data in filteredData">
+                <div class="block" v-for="(data, index) in filteredData">
                     <p class="fact">{{ data.fact }}</p>
                     <p class="tip">{{ data.tip }}</p>
-                    <button @click="more(data)" class="more">
+                    <button @click="more(index, data)" class="more">
                         <span class="text">Voir la solution</span>
-                        <span class="chevron">›</span></button>
+                        <span class="chevron">›</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -46,14 +47,7 @@
         data() {
             return {
                 selectedCategories: [],
-                data: data.map(dat => {
-                    return {
-                        fact: dat.fact,
-                        tips: dat.tips,
-                        category: dat.category,
-                        extended: false,
-                    }
-                })
+                data: data
             }
         },
         computed: {
@@ -89,14 +83,18 @@
                     ? 'active ' + slug
                     : slug;
             },
-            more(data) {
+            more(index, data) {
                 let newData = {
                     fact: data.fact,
-                    tips: data.tips,
+                    tip: data.tip,
                     category: data.category,
-                    extended: !this.data[this.data.findIndex(dat => dat.tips === data.tips)].extended,
+                    extended: !this.data[index].extended,
                 };
-                this.$set(this.data, this.data.findIndex(dat => dat.tips === data.tips), newData)
+                this.$set(this.data, index, Object.assign(
+                    {},
+                    this.data[index],
+                    newData
+                ));
             }
         }
     }
